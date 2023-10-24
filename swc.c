@@ -490,6 +490,7 @@ main(void)
 			int status = mcp_read_status(), efgl = mcp_read_register(EFGL);
 
 			wdt_disable();
+			interrupted = 0;
 
 			if (efgl & (EFLG_RX0OVR | EFLG_RX1OVR))
 				mcp_bit_modify(EFGL, EFLG_RX0OVR | EFLG_RX1OVR, 0b0);
